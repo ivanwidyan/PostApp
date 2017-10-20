@@ -1,24 +1,20 @@
-package com.ivanwidyan.postapp;
+package com.ivanwidyan.postapp.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.ivanwidyan.postapp.R;
+import com.ivanwidyan.postapp.adapter.Adapter;
+import com.ivanwidyan.postapp.fragment.home.TabMessageFragment;
+import com.ivanwidyan.postapp.fragment.home.TabPostFragment;
 
 public class HomeFragment extends Fragment {
-
-    private FragmentTabHost mTabHost;
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
@@ -47,43 +43,9 @@ public class HomeFragment extends Fragment {
 
     // Add Fragments to Tabs
     private void setupViewPager(ViewPager viewPager) {
-
-
         Adapter adapter = new Adapter(getChildFragmentManager());
-        adapter.addFragment(new TabMessageFragment(), "Messages");
         adapter.addFragment(new TabPostFragment(), "Post");
+        adapter.addFragment(new TabMessageFragment(), "Messages");
         viewPager.setAdapter(adapter);
-
-
-
-    }
-
-    static class Adapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public Adapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
     }
 }

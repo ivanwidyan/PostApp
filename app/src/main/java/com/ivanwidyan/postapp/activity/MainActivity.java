@@ -1,13 +1,17 @@
-package com.ivanwidyan.postapp;
+package com.ivanwidyan.postapp.activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.ivanwidyan.postapp.fragment.HomeFragment;
+import com.ivanwidyan.postapp.fragment.ProfileFragment;
+import com.ivanwidyan.postapp.R;
 
 public class MainActivity extends FragmentActivity {
 
@@ -28,8 +32,9 @@ public class MainActivity extends FragmentActivity {
                                 selectedFragment = HomeFragment.newInstance();
                                 break;
                             case R.id.action_item2:
-                                selectedFragment = PostFragment.newInstance();
-                                break;
+                                // selectedFragment = PostFragment.newInstance();
+                                startActivity(new Intent(MainActivity.this, PostActivity.class));
+                                return true;
                             case R.id.action_item3:
                                 selectedFragment = ProfileFragment.newInstance();
                                 break;
