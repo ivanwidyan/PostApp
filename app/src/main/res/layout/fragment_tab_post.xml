@@ -5,9 +5,10 @@
     tools:context="com.ivanwidyan.postapp.fragment.home.TabPostFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Post fragment" />
+        android:id="@+id/post_list">
+    </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>

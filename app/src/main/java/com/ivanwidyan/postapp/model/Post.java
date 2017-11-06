@@ -1,4 +1,4 @@
-package com.ivanwidyan.postapp;
+package com.ivanwidyan.postapp.model;
 
 /**
  * Created by ivanwidyan on 10/20/17.
